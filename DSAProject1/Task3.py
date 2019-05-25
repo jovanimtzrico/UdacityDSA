@@ -26,7 +26,7 @@ def findAreaCodes():
             receivingCall = call[1]
             if bangaloreCode in receivingCall:
                 callToBangalore += 1
-            code = re.search('\(*([0-9]*)\)* *([0-9]+)', receivingCall).group(1)
+            code = re.search('\(*([0-9]{1,4})[0-9]?\)* *([0-9]+)', receivingCall).group(1)
             code_set.add(code)
     
     percentage = (callToBangalore * 100) / bangaloreCalls
